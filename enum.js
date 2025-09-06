@@ -132,5 +132,11 @@ addTask("Code mini project quản lý Task");
 updateTaskStatus(2, TaskStatus.InProgress);
 updateTaskStatus(3, TaskStatus.Done);
 printTasks();
+let student1 = {
+    name: "Nguyễn Văn A",
+    age: 20,
+    isGraduated: false,
+};
+console.log(student1);
 export {};
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=enum.js.map
