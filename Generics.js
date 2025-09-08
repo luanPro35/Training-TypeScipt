@@ -10,9 +10,15 @@ var Status;
     Status[Status["Active"] = 0] = "Active";
     Status[Status["Inactive"] = 1] = "Inactive";
 })(Status || (Status = {}));
-var item = {
+let item = {
     status: Status.Active,
     message: "Success",
     data: [{ id: 1, name: "Example Product" }],
 };
 console.log(item);
+function findById(arr, id) {
+    return arr.find((item) => item.id === id);
+}
+console.log(findById(item.data, 1));
+export {};
+//# sourceMappingURL=Generics.js.map

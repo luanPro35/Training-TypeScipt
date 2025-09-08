@@ -1,1 +1,17 @@
 1. Generics
+2. Utility Types
+- Partial<T> → biến tất cả các field trong T thành optional.
+- Required<T> → biến tất cả các field thành bắt buộc.
+- Readonly<T> → tất cả field chỉ đọc (không cho sửa).
+- Pick<T, K> → chọn một số field từ T.
+- Omit<T, K> → bỏ một số field khỏi T.
+🟢 Tóm gọn
+Partial → khi update.
+Required → khi muốn ép phải đủ data.
+Readonly → khi data không được sửa.
+Pick → khi chỉ cần một vài field.
+Omit → khi muốn bỏ đi một vài field.
+3. Utility Type mới: Record<Keys, Type>.
+Dùng để tạo object với key cố định và value có kiểu xác định.
+Thay vì viết dài dòng interface, Record giúp code gọn hơn.
+
