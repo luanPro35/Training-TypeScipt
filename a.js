@@ -1,2 +1,2 @@
-import sum from "sum.js";
+import { sum } from "./sum.js";
 console.log(sum(2, "3"));

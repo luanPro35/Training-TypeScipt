@@ -14,4 +14,16 @@ Omit → khi muốn bỏ đi một vài field.
 3. Utility Type mới: Record<Keys, Type>.
 Dùng để tạo object với key cố định và value có kiểu xác định.
 Thay vì viết dài dòng interface, Record giúp code gọn hơn.
-
+4. Utility Types
+Khái niệm
+Dùng để loại bỏ null và undefined khỏi type.
+Khi ta muốn chắc chắn giá trị luôn tồn tại (không null/undefined).
+infer — đây là phần rất mạnh của TS, dùng để suy diễn type từ một cấu trúc phức tạp.
+5. Distributive Conditional Types là gì?
+Trong TS, nếu em viết conditional type trên union, thì TS sẽ phân phối điều kiện cho từng phần tử của union.
+type ToArray<T> = T extends any ? T[] : never;
+type A = ToArray<string>;
+type B = ToArray<string | number>;
+Lấy cả 2; ****
+type Loai<T> = T extends string ? never : T;
+Loại cái mà mình muốn bỏ -> ở trên là string ***
