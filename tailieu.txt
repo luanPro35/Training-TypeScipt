@@ -11,14 +11,17 @@ Required → khi muốn ép phải đủ data.
 Readonly → khi data không được sửa.
 Pick → khi chỉ cần một vài field.
 Omit → khi muốn bỏ đi một vài field.
+
 3. Utility Type mới: Record<Keys, Type>.
 Dùng để tạo object với key cố định và value có kiểu xác định.
 Thay vì viết dài dòng interface, Record giúp code gọn hơn.
+
 4. Utility Types
 Khái niệm
 Dùng để loại bỏ null và undefined khỏi type.
 Khi ta muốn chắc chắn giá trị luôn tồn tại (không null/undefined).
 infer — đây là phần rất mạnh của TS, dùng để suy diễn type từ một cấu trúc phức tạp.
+
 5. Distributive Conditional Types là gì?
 Trong TS, nếu em viết conditional type trên union, thì TS sẽ phân phối điều kiện cho từng phần tử của union.
 type ToArray<T> = T extends any ? T[] : never;
@@ -27,3 +30,40 @@ type B = ToArray<string | number>;
 Lấy cả 2; ****
 type Loai<T> = T extends string ? never : T;
 Loại cái mà mình muốn bỏ -> ở trên là string ***
+
+6. Mapped Types là gì?
+Nó cho phép em biến đổi type dựa trên keys của type khác.
+CRUD repository generic, có thể tái dùng cho mọi model (Product, User, Order...).
+interface CrudRepository<T extends { id: any }> {
+  add(item: T): void;
+  read(id: T["id"]): T | undefined;
+  update(id: T["id"], item: NullablePartial<T>): T | undefined;
+  delete(id: T["id"]): boolean;
+  getAll(): T[];
+}
+
+class InMemoryRepository<T extends { id: any }> implements CrudRepository<T> {
+  private items: T[] = [];
+  add(item: T): void {
+    this.items.push(item);
+    console.log(`✅ Đã thêm item:`, item);
+  }
+  read(id: T["id"]): T | undefined {
+    return this.items.find((i) => i.id === id);
+  }
+  update(id: T["id"], update: NullablePartial<T>): T | undefined {
+    const item = this.items.find((i) => i.id === id);
+    if (!item) return undefined;
+    Object.assign(item, update);
+    return item;
+  }
+  delete(id: T["id"]): boolean {
+    const index = this.items.findIndex((i) => i.id === id);
+    if (index === -1) return false;
+    this.items.splice(index, 1);
+    return true;
+  }
+  getAll(): T[] {
+    return this.items;
+  }
+}
