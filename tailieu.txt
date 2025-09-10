@@ -4,7 +4,7 @@
 - Required<T> → biến tất cả các field thành bắt buộc.
 - Readonly<T> → tất cả field chỉ đọc (không cho sửa).
 - Pick<T, K> → chọn một số field từ T.
-- Omit<T, K> → bỏ một số field khỏi T.
+- Omit<T, K> → bỏ một số field khỏi T.(không cho sửa có thể là 1 cái)
 🟢 Tóm gọn
 Partial → khi update.
 Required → khi muốn ép phải đủ data.
@@ -66,4 +66,14 @@ class InMemoryRepository<T extends { id: any }> implements CrudRepository<T> {
   getAll(): T[] {
     return this.items;
   }
+}
+
+7. 📌 Bài mới: Keyof & Lookup Types
+1. keyof
+Dùng để lấy ra tập hợp key của một object type.
+2. Lookup Types
+Dùng cú pháp T[K] để lấy type của field.
+3. Kết hợp keyof + Lookup
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
 }

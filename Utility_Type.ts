@@ -37,3 +37,26 @@ function getDiscount(category: Category): number {
 }
 
 console.log(getDiscount(Category.Electronics));
+
+function updateProperty<T extends object>(obj: T, updates: Partial<T>): void {
+  Object.assign(obj, updates);
+}
+
+// Ví dụ sử dụng:
+interface User {
+  name: string;
+  age: number;
+  email?: string;
+}
+
+const user1: User = { name: "Alice", age: 30 };
+console.log("Trước khi cập nhật:", user1); // { name: "Alice", age: 30 }
+
+updateProperty(user1, { age: 31, email: "alice@example.com" });
+console.log("Sau khi cập nhật:", user1); // { name: "Alice", age: 31, email: "alice@example.com" }
+
+const user2: User = { name: "Bob", age: 25, email: "bob@example.com" };
+console.log("Trước khi cập nhật:", user2); // { name: "Bob", age: 25, email: "bob@example.com" }
+
+updateProperty(user2, { name: "Robert" });
+console.log("Sau khi cập nhật:", user2); // { name: "Robert", age: 25, email: "bob@example.com" }
