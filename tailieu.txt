@@ -77,3 +77,19 @@ Dùng cú pháp T[K] để lấy type của field.
 function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
 }
+
+8. Utility Types nâng cao
+Exclude<T, U>
+→ Loại bỏ những kiểu trong T mà có trong U.
+type p1 = Exclude<number | string | boolean, boolean>;
+Extract<T, U>
+→ Giữ lại những kiểu trong T mà có trong U.
+ReturnType<T>
+→ Lấy kiểu trả về của 1 hàm.
+Parameters<T>
+→ Lấy kiểu tham số của hàm.
+kind: thường dùng trong interface hoặc khi muốn quản lý type bằng thuộc tính thủ công (hay trong API response).
+instanceof: dùng trong class khi có constructor thực sự, TS và JS đều hiểu.
+
+9. TypeScript Generics nâng cao → học Generic Constraints + Default Type Parameters.
+10. Mapped Types nâng cao + Remap Keys (cực mạnh khi muốn transform type).
