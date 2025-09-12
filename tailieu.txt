@@ -92,4 +92,11 @@ kind: thường dùng trong interface hoặc khi muốn quản lý type bằng t
 instanceof: dùng trong class khi có constructor thực sự, TS và JS đều hiểu.
 
 9. TypeScript Generics nâng cao → học Generic Constraints + Default Type Parameters.
+
 10. Mapped Types nâng cao + Remap Keys (cực mạnh khi muốn transform type).
+**// Remap key: đổi tất cả key sang dạng readonly + optional
+
+11. Infer trong Conditional Types
+infer giúp ta trích xuất type ẩn bên trong một type phức tạp
+
+12. Key Remapping với as trong Mapped Types
