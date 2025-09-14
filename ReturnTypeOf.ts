@@ -10,5 +10,4 @@ type E = FirstElement<boolean>; // never
 
 type F = PromiseValue<Promise<string>>; // string
 type G = PromiseValue<number>; // number
-let a: A = 2;
-console.log(a);
+

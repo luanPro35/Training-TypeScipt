@@ -1,8 +1,17 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: ["babel-plugin-styled-components"],
+      },
+      // Add this for TypeScript
+    }),
+  ],
+  css: {
+    postcss: "./postcss.config.js",
+  },
 });
