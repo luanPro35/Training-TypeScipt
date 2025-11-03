@@ -1,0 +1,34 @@
+I) 1. Null: được sử dụng khi mà chúng ta cố tính gắn giá trị "rỗng có chủ đích" - tức là biến hiện tại chưa có dữ liệu, nhưng chắc chắn sẽ có sau này
+Vidu: let userName: string | null = null;
+userName = "Luan"
+
+2. undefined: Khi mà chưa được gán giá trị hoặc là không trả về giá trị gì
+
+let result: number | undefined;
+
+function findName(name: string): number | undefined {
+    if(name === "Luan") return 101;
+    return undefined;
+}
+
+result = findName("Hai");
+console.log(result);
+
+3. any: là chưa biết biến chính xác nên là chính ta dùng tạm như cửa thoát hiểm, hạn chế sử dụng trong ts vì dễ bị run time, mất an toàn
+let value: any;
+value: 123;
+value: "Luan";
+value: true;
+
+value.toUpperCase() nó vẫn sẽ nhận định là đúng
+
+4. unknown: khi chưa biết kiểu dữ liệu gì vào thì mình có thể dùng cái này đỡ, nó an toàn hơn any
+let name: unknown = "Luan";
+if(typeof name = "string"){
+    console.log(name.toUpperCase());
+}
+
+II) Union Types: Union cho phép một biến có thể thuộc nhiều kiểu dữ liệu khác nhau.
+
+III) Intersection Types: là gộp nhiều type thành 1, tức là bắt buộc có đủ tất cả thuộc tính type đó
+

@@ -1,19 +1,29 @@
-export default function BlogList() {
-  const blogs = [
-    { id: "1", title: "Bài viết đầu tiên" },
-    { id: "2", title: "Next.js thật tuyệt" },
-  ];
+type Post = {
+  id: number;
+  title: string;
+};
+
+export default async function BlogPage() {
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/posts?_limit=5"
+  );
+  const posts: Post[] = await res.json();
 
   return (
-    <main className="p-10">
-      <h1 className="text-2xl font-bold">Danh sách Blog</h1>
-      <ul className="list-disc pl-5 mt-3">
-        {blogs.map((blog) => (
-          <li key={blog.id}>
-            {blog.title} (ID: {blog.id})
+    <div>
+      <h1 className="text-2xl font-bold mb-4">Danh sách bài viết</h1>
+      <ul className="space-y-2">
+        {posts.map((post) => (
+          <li key={post.id} className="border p-3 rounded">
+            <a
+              href={`/blog/${post.id}`}
+              className="text-blue-600 hover:underline"
+            >
+              {post.title}
+            </a>
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }

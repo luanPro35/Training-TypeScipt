@@ -1,8 +1,8 @@
-export default function About() {
+export default function AboutPage() {
   return (
-    <main className="p-10">
-      <h1 className="text-2xl font-bold">About</h1>
-      <p>Tôi là Luân, đang học Next.js + TypeScript 🚀</p>
-    </main>
+    <div>
+      <h1 className="text-2xl font-bold">Giới thiệu</h1>
+      <p>Đây là trang About của website Next.js demo 🚀</p>
+    </div>
   );
 }

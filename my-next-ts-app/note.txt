@@ -1,0 +1,5 @@
+1. SSR – Server Side Rendering
+Dữ liệu được fetch mỗi lần request.
+Luôn tươi mới (real-time).
+Hợp cho: dashboard, profile user, dữ liệu thay đổi liên tục.
+

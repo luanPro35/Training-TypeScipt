@@ -1,0 +1,22 @@
+{
+  "name": "typescript-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^24.3.1"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "slugify": "^1.6.6",
+    "vite": "^7.1.5"
+  }
+}
