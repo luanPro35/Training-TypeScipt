@@ -7,7 +7,7 @@ interface UserInterface {
 interface Person extends UserInterface {
   address: string;
 }
-
+//Demo
 const person: Person = {
   id: "123",
   name: "Luan",
