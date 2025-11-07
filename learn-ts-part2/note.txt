@@ -32,3 +32,10 @@ II) Union Types: Union cho phép một biến có thể thuộc nhiều kiểu d
 
 III) Intersection Types: là gộp nhiều type thành 1, tức là bắt buộc có đủ tất cả thuộc tính type đó
 
+IV) Generics (kiểu tổng quát) cho phép bạn viết code có thể tái sử dụng mà vẫn an toàn kiểu dữ liệu.
+Tên	Nghĩa thường dùng	Ví dụ điển hình
+T	Type (kiểu tổng quát chính)	                                 function identity<T>(x: T): T
+U	Type thứ hai, thường dùng khi có 2 kiểu liên quan	         function merge<T, U>(a: T, b: U): T & U
+K	Key (khi dùng với keyof, hoặc để đại diện key của object)	 function getValue<T, K extends keyof T>(obj: T, key: K)
+V	Value (giá trị, thường đi kèm với K)	                     Record<K, V>
+E	Element (phần tử trong mảng, tập hợp, list)	                 class Stack<E> { push(item: E) {} }
