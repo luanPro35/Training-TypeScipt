@@ -3,3 +3,4 @@ function tongg<T>(value: T): T {
 }
 
 console.log(tongg<number>(123));
+//node
