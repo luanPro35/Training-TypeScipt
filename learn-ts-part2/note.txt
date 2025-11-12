@@ -39,3 +39,22 @@ U	Type thứ hai, thường dùng khi có 2 kiểu liên quan	         function 
 K	Key (khi dùng với keyof, hoặc để đại diện key của object)	 function getValue<T, K extends keyof T>(obj: T, key: K)
 V	Value (giá trị, thường đi kèm với K)	                     Record<K, V>
 E	Element (phần tử trong mảng, tập hợp, list)	                 class Stack<E> { push(item: E) {} }
+
+V) Utility Types:
+
+1. Pick: sẽ chỉ lấy những cái dữ liệu mà mình cần 
+Vd: type user: Pick<User, "id" | "name">
+
+2. Omit: nó sẽ bỏ qua cái kiểu object mà mình nhập vào vidu:
+User = {
+    id, name, age
+} nhưng chúng ta chỉ muốn sử dụng id và name thôi thì chúng ta loại age với lệnh là Omit<User, "age">
+
+3. Record: dùng để phân quyền cho mỗi obj, vidu là admin, user
+type Role = "admin" | "user" | "member";
+type RolePermissions = Record<Role, string[]>;
+
+4. Partial<T> — biến tất cả thuộc tính thành optional: cái này thì chúng ta gọi bao nhiêu cái cũng được, không cần bắt buộc là phải gọi hết
+5. Required<T> — biến tất cả thuộc tính thành bắt buộc: TRONG TYPE MÌNH KHAI BÁO CÁI GÌ THÌ BẮT BUỘC PHẢI GHI hết
+6. Readonly<T> — biến tất cả thuộc tính thành readonly: cái này là nó không cho mình gán cái mới
+7. Readonly<T> — biến tất cả thuộc tính thành readonly: dùng khi muốn bảo vệ object khỏi thay đổi, ví dụ config, constants.

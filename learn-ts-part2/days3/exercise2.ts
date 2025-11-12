@@ -1,21 +1,14 @@
-type User = {
-  id: string;
-  name: string;
-  age: number;
-};
-
-type Admin = User & {
-  role: "admin";
-  permissions: string[];
-};
+import { User, Admin } from "./types";
 
 function printUser(user: User): string {
   return `User: ${user.name} - Age: ${user.age}`;
 }
 
-function processUsers(user: User): string;
-function processUsers(users: User[]): string[];
-function processUsers(userOrUsers: User | User[]): string | string[] {
+function processUsers(user: { name: string; age: number }): string;
+function processUsers(users: { name: string; age: number }[]): string[];
+function processUsers(
+  userOrUsers: { name: string; age: number } | { name: string; age: number }[]
+): string | string[] {
   if (Array.isArray(userOrUsers)) {
     return userOrUsers.map((u) => `${u.name} (${u.age})`);
   } else {
