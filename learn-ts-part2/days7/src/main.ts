@@ -51,6 +51,5 @@ console.log(bookService.getBooks());
 console.log("\n📕 Lấy sách theo ID = 3:");
 console.log(bookService.getBookById("3"));
 
-// === 4️⃣ In danh sách thành viên ===
 console.log("\n👤 Danh sách thành viên:");
 console.log(memberService.getAllMember());
