@@ -46,8 +46,6 @@ console.log(bookService.getBooks());
 memberService.returnBook("m1", "2");
 console.log("\n📗 Sau khi trả sách:");
 console.log(bookService.getBooks());
-
-// === 3️⃣ Lấy & tìm sách ===
 console.log("\n📕 Lấy sách theo ID = 3:");
 console.log(bookService.getBookById("3"));
 
