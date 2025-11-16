@@ -39,7 +39,7 @@ console.log("\n📖 Luân mượn sách ID = 2 (TypeScript Handbook)");
 memberService.addMember({ id: "m1", name: "Luân", borrowedBooks: [] });
 memberService.addMember({ id: "m2", name: "Lâm", borrowedBooks: [] });
 
-memberService.borrowBook("m1", "2"); // Luân mượn
+memberService.borrowBook("m1", "2"); 
 console.log("\n📚 Sau khi mượn:");
 console.log(bookService.getBooks());
 
